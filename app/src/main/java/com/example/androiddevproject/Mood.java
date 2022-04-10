@@ -2,6 +2,7 @@ package com.example.androiddevproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,7 +15,7 @@ public class Mood extends AppCompatActivity {
 
     RadioButton radEmotion;
     RadioGroup radGroupEmotion;
-    Button btnSubmit;
+    Button btnSubmit, back;
     TextView lbl, lblIntensity;
     SeekBar emotionIntensity;
 
@@ -28,6 +29,7 @@ public class Mood extends AppCompatActivity {
         lbl = findViewById(R.id.lblShow);
         lblIntensity = findViewById(R.id.lblShowIntensity);
         emotionIntensity = findViewById(R.id.seekBarIntensity);
+        back = findViewById(R.id.back);
 
 
         radGroupEmotion.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -62,6 +64,14 @@ public class Mood extends AppCompatActivity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
 
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Mood.this, Dashboard.class);
+                startActivity(intent);
             }
         });
 
