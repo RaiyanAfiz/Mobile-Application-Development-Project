@@ -3,20 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/rebec/AndroidStudioProjects/Mobile-Application-Development-Project/app/src/main/res/layout/activity_dashboard.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/rebec/AndroidStudioProjects/Mobile-Application-Development-Project/app/src/main/res/layout/activity_journal.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/rebec/AndroidStudioProjects/Mobile-Application-Development-Project/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/rebec/AndroidStudioProjects/Mobile-Application-Development-Project/app/src/main/res/layout/activity_mood.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/rebec/AndroidStudioProjects/Mobile-Application-Development-Project/app/src/main/res/layout/activity_resources.xml" value="0.25416666666666665" />
+<<<<<<< HEAD
         <entry key="..\:/Work/Codes/Git/Mobile-Application-Development-Project/app/src/main/res/layout/activity_dashboard.xml" value="0.3875" />
         <entry key="..\:/Work/Codes/Git/Mobile-Application-Development-Project/app/src/main/res/layout/activity_journal.xml" value="0.3875" />
+=======
+        <entry key="..\:/Users/rebec/AndroidStudioProjects/Mobile-Application-Development-Project/app/src/main/res/layout/activity_webview.xml" value="0.36666666666666664" />
+>>>>>>> main
         <entry key="..\:/Work/Codes/Git/Mobile-Application-Development-Project/app/src/main/res/layout/activity_main.xml" value="0.3378623188405797" />
         <entry key="..\:/Work/Codes/Git/Mobile-Application-Development-Project/app/src/main/res/layout/activity_mood.xml" value="0.3378623188405797" />
         <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_journal.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_journal2.xml" value="0.19157608695652173" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/activity_mood.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_resources.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/layout2.xml" value="0.12512664640324214" />
       </map>
     </option>
   </component>
