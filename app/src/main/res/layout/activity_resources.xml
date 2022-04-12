@@ -5,6 +5,7 @@
     android:orientation="vertical">
 
 
+
     <Button
         android:id="@+id/button1"
         android:layout_width="match_parent"
@@ -14,7 +15,9 @@
         android:cursorVisible="true"
         android:linksClickable="true"
         android:onClick="WEcmha"
-        android:text="Canadian Mental Health Association Windsor-Essex County"></Button>
+        android:text="Canadian Mental Health Association Windsor-Essex County">
+
+    </Button>
 
     <Button
         android:id="@+id/button2"
@@ -28,8 +31,30 @@
     </Button>
 
     <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:clickable="true"
+        android:onClick="scUwin"
+        android:text="Student Health, Counselling and Wellness - University of Windsor">
+
+    </Button>
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:clickable="true"
+        android:onClick="deepB"
+        android:text="Deep Breathing Exercises">
+
+    </Button>
+
+    <Button
         android:id="@+id/back2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="BACK" />
 </LinearLayout>
