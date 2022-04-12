@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidDevProject">
         <activity
+            android:name=".Webview"
+            android:exported="false" />
+        <activity
             android:name=".Journal2"
             android:exported="false" />
         <activity
@@ -34,5 +37,7 @@
             </intent-filter>
         </activity>
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
