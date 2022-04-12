@@ -36,6 +36,14 @@ public class Resources extends AppCompatActivity {
         goTo("https://www.ontario.ca/page/find-mental-health-support");
     }
 
+    public void scUwin (View view) {
+        goTo("https://www.uwindsor.ca/wellness/304/counselling");
+    }
+
+    public void deepB (View view) {
+        goTo("https://www.youtube.com/watch?v=F28MGLlpP90");
+    }
+
     private void goTo(String url) {
         Uri uriUrl = Uri.parse(url);
         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
