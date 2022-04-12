@@ -2,56 +2,93 @@ package com.example.androiddevproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
+
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import com.google.android.material.snackbar.Snackbar;
+
+import org.apache.commons.io.FileUtils;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+
 
 public class Journal extends AppCompatActivity {
 
     private Button btnfloat;
     private EditText journaltext;
     private TextView journalheading;
-    private ListView item_list;
-    private ArrayList<String> values=new ArrayList<String>();
-    private ArrayAdapter<String> adapter;
-    LinearLayout layout1;
+    private ListView listview;
+    private ArrayList<String> items;
+    private ArrayAdapter<String> itemsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_journal);
 
-        layout1 = findViewById(R.id.layout1);
-        btnfloat = findViewById(R.id.btnfloat);
-        journaltext = findViewById(R.id.journaltext);
+
         journalheading = findViewById(R.id.journalheading);
-        item_list = findViewById(R.id.listview);
+       btnfloat = findViewById(R.id.btnfloat);
+        listview = findViewById(R.id.listview);
+        items = new ArrayList<String>();
 
-        values = FileHandler.ReadData(this);
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, values);
-        item_list.setAdapter(adapter);
+        readItems();
 
-        btnfloat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String newItem = journaltext.getText().toString();
-                if(!newItem.isEmpty()) {
-                    values.add(newItem);
-                }
-                else if(newItem.isEmpty())
-                    Snackbar.make(layout1, "Cannot add item", Snackbar.LENGTH_SHORT).show();
-                journaltext.setText("");
-               FileHandler.EnterData(getApplicationContext(), values);
-               adapter.notifyDataSetChanged();
-            }
-        });
+        itemsAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, items);
+        listview.setAdapter(itemsAdapter);
+
+        setupListViewListener();
+
+    }
+
+    private void setupListViewListener() {
+        listview.setOnItemLongClickListener(
+                new AdapterView.OnItemLongClickListener() {
+                    @Override
+                    public boolean onItemLongClick(AdapterView<?> adapter,
+                                                   View item, int pos, long id) {
+                        items.remove(pos);
+                        itemsAdapter.notifyDataSetChanged();
+                        writeItems();
+                        return true;
+                    }
+
+                });
+    }
+
+    public void onAddItem(View v){
+        journaltext = findViewById(R.id.journaltext);
+        String itemText = journaltext.getText().toString();
+        itemsAdapter.add(itemText);
+        journaltext.setText("");
+        writeItems();
+    }
+
+    private void readItems() {
+        File filesDir = getFilesDir();
+        File todoFile = new File(filesDir, "todo.txt");
+        try {
+            items = new ArrayList<String>(FileUtils.readLines(todoFile));
+        } catch (IOException e) {
+            items = new ArrayList<String>();
+        }
+    }
+
+    private void writeItems() {
+        File filesDir = getFilesDir();
+        File todoFile = new File(filesDir, "todo.txt");
+        try {
+            FileUtils.writeLines(todoFile, items);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
