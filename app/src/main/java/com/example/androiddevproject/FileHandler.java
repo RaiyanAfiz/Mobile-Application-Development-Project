@@ -2,6 +2,8 @@ package com.example.androiddevproject;
 
 import android.content.Context;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -10,7 +12,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-public class FileHandler {
+public class FileHandler extends AppCompatActivity{
 
     public static final String FILENAME = "file.txt";
     public static void EnterData(Context context, ArrayList<String> items){

@@ -2,6 +2,7 @@ package com.example.androiddevproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -10,9 +11,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import com.google.android.material.snackbar.Snackbar;
-
 import java.util.ArrayList;
 
 public class Journal extends AppCompatActivity {
@@ -47,12 +46,11 @@ public class Journal extends AppCompatActivity {
                 if(!newItem.isEmpty()) {
                     values.add(newItem);
                 }
-                else if(newItem.isEmpty()){
-                    Snackbar.make(layout1,"Cannot add item", Snackbar.LENGTH_SHORT).show();
-                }
+                else if(newItem.isEmpty())
+                    Snackbar.make(layout1, "Cannot add item", Snackbar.LENGTH_SHORT).show();
                 journaltext.setText("");
-                FileHandler.EnterData(getApplicationContext(), values);
-                adapter.notifyDataSetChanged();
+               FileHandler.EnterData(getApplicationContext(), values);
+               adapter.notifyDataSetChanged();
             }
         });
     }
