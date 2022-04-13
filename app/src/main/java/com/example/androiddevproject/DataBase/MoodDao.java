@@ -23,4 +23,13 @@ public interface MoodDao {
 
     @Update
     int update(MoodTable mood);
+
+    @Query("SELECT id, mood, intensity FROM moodtable GROUP BY mood ORDER BY COUNT(mood) DESC LIMIT 1")
+    List<MoodTable> mostCommonEmotion();
+
+    @Query("SELECT id, mood, AVG(intensity) as intensity FROM moodtable;")
+    List<MoodTable> aveIntensity();
+
+    @Query("SELECT id, mood, AVG(intensity) as intensity FROM moodtable GROUP BY mood ORDER BY COUNT(mood) DESC;")
+    List<MoodTable> emotionList();
 }

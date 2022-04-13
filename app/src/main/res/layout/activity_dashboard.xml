@@ -8,6 +8,30 @@
     tools:context=".Dashboard">
 
 
+    <Button
+        android:id="@+id/btnMoodAnalysis"
+        android:layout_width="150dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="131dp"
+        android:layout_marginBottom="113dp"
+        android:backgroundTint="@color/white"
+        android:text="MOOD Analysis"
+        android:textColor="@color/teal_700"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnViewJournal"
+        android:layout_width="150dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="@color/white"
+        android:text="View Journal"
+        android:textColor="@color/teal_700"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="181dp"
