@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@drawable/bgmood1"
     android:orientation="vertical">
 
 
@@ -17,6 +18,7 @@
         android:clickable="true"
         android:cursorVisible="true"
         android:linksClickable="true"
+        android:backgroundTint="@color/mauve"
         android:onClick="WEcmha"
         android:text="Canadian Mental Health Association Windsor-Essex County">
 
@@ -29,6 +31,7 @@
         android:autoLink="web"
         android:clickable="true"
         android:onClick="fmhsOn"
+        android:backgroundTint="@color/mauve"
         android:text="Find Mental Health Support">
 
     </Button>
@@ -40,6 +43,7 @@
         android:autoLink="web"
         android:clickable="true"
         android:onClick="scUwin"
+        android:backgroundTint="@color/mauve"
         android:text="Student Health, Counselling and Wellness - University of Windsor">
 
     </Button>
@@ -51,6 +55,7 @@
         android:autoLink="web"
         android:clickable="true"
         android:onClick="deepB"
+        android:backgroundTint="@color/mauve"
         android:text="Deep Breathing Exercises">
 
     </Button>
@@ -61,5 +66,6 @@
         android:id="@+id/back2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/mauve"
         android:text="BACK" />
 </LinearLayout>

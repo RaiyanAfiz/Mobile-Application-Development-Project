@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bgmood1"
     tools:context=".Mood">
 
     <Button
@@ -14,6 +15,7 @@
         android:text="@string/submit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
+        android:backgroundTint="@color/mauve"
         app:layout_constraintStart_toEndOf="@+id/radGroupEmotions"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,37 +43,43 @@
             android:id="@+id/radHappy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/happy" />
+            android:text="@string/happy"
+            android:textSize="16sp" />
 
         <RadioButton
             android:id="@+id/radMotivated"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/motivated" />
+            android:text="@string/motivated"
+            android:textSize="16sp" />
 
         <RadioButton
             android:id="@+id/radBored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/bored" />
+            android:text="@string/bored"
+            android:textSize="16sp" />
 
         <RadioButton
             android:id="@+id/radAnnoyed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/annoyed" />
+            android:text="@string/annoyed"
+            android:textSize="16sp" />
 
         <RadioButton
             android:id="@+id/radAngry"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/angry" />
+            android:text="@string/angry"
+            android:textSize="16sp" />
 
         <RadioButton
             android:id="@+id/radSad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/sad" />
+            android:text="@string/sad"
+            android:textSize="16sp" />
     </RadioGroup>
 
     <SeekBar
@@ -96,6 +104,7 @@
         android:layout_marginEnd="44dp"
         android:text="Rate your mood intensity"
         app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/seekBarIntensity"
         app:layout_constraintTop_toTopOf="@+id/seekBarIntensity" />
 
@@ -106,6 +115,7 @@
         android:layout_marginStart="38dp"
         android:layout_marginBottom="10dp"
         android:text="Back"
+        android:backgroundTint="@color/mauve"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/lblShow" />
 

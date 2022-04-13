@@ -5,6 +5,7 @@ import androidx.core.os.HandlerCompat;
 import androidx.room.Room;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -22,7 +23,7 @@ import java.util.concurrent.Executors;
 
 public class Journal extends AppCompatActivity {
 
-    private Button addText;
+    private Button addText, button5;
     private EditText journalInput;
 
     private MyDB database;
@@ -38,6 +39,7 @@ public class Journal extends AppCompatActivity {
 
 
         addText = findViewById(R.id.btnAddTextJournal);
+        button5 = findViewById(R.id.button5);
         journalInput = findViewById(R.id.etJournalText);
         initDB();
 
@@ -69,6 +71,14 @@ public class Journal extends AppCompatActivity {
                 });
 
                 journalInput.setText("");
+            }
+        });
+
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent5 = new Intent(Journal.this, Dashboard.class);
+                startActivity(intent5);
             }
         });
 
