@@ -29,12 +29,6 @@ public class Resources extends AppCompatActivity {
         button3 = findViewById(R.id.button3);
         button4 = findViewById(R.id.button4);
 
-
-
-
-
-
-
         back2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -87,24 +81,6 @@ public class Resources extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
