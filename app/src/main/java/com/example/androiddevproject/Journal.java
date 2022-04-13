@@ -1,30 +1,35 @@
 package com.example.androiddevproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.os.HandlerCompat;
+import androidx.room.Room;
 
 
 import android.os.Bundle;
-import android.os.FileUtils;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.TextView;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
+import android.widget.Toast;
+
+import com.example.androiddevproject.DataBase.JournalTable;
+import com.example.androiddevproject.DataBase.MyDB;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 public class Journal extends AppCompatActivity {
-/*
-    private Button btnfloat;
-    private EditText journaltext;
-    private TextView journalheading;
-    private ListView listview;
-    private ArrayList<String> items;
-    private ArrayAdapter<String> itemsAdapter;
+
+    private Button addText;
+    private EditText journalInput;
+
+    private MyDB database;
+    private ExecutorService executorService = Executors.newSingleThreadExecutor();
+    private Handler handler = HandlerCompat.createAsync(Looper.getMainLooper());
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,61 +37,45 @@ public class Journal extends AppCompatActivity {
         setContentView(R.layout.activity_journal);
 
 
-        journalheading = findViewById(R.id.journalheading);
-       btnfloat = findViewById(R.id.btnfloat);
-        listview = findViewById(R.id.listview);
-        items = new ArrayList<String>();
+        addText = findViewById(R.id.btnAddTextJournal);
+        journalInput = findViewById(R.id.etJournalText);
+        initDB();
 
-        readItems();
+        addText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        itemsAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, items);
-        listview.setAdapter(itemsAdapter);
+                String journalText = journalInput.getText().toString().trim();
 
-        setupListViewListener();
+                JournalTable journalT = new JournalTable();
+                journalT.setJournal(journalText);
 
-    }
-
-    private void setupListViewListener() {
-        listview.setOnItemLongClickListener(
-                new AdapterView.OnItemLongClickListener() {
+                executorService.execute(new Runnable() {
                     @Override
-                    public boolean onItemLongClick(AdapterView<?> adapter,
-                                                   View item, int pos, long id) {
-                        items.remove(pos);
-                        itemsAdapter.notifyDataSetChanged();
-                        writeItems();
-                        return true;
+                    public void run() {
+                        long id = database.journalDao().insert(journalT);
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (id > 0) {
+                                    Toast.makeText(Journal.this, "Data Insertion success.", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(Journal.this, "Data Insertion failed.", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+
                     }
-
                 });
+            }
+        });
+
     }
 
-    public void onAddItem(View v){
-        journaltext = findViewById(R.id.journaltext);
-        String itemText = journaltext.getText().toString();
-        itemsAdapter.add(itemText);
-        journaltext.setText("");
-        writeItems();
+    private void initDB() {
+        database = Room.databaseBuilder(getApplicationContext(),
+                MyDB.class, "user_data")
+                .fallbackToDestructiveMigration()
+                .build();
     }
-
-    private void readItems() {
-        File filesDir = getFilesDir();
-        File todoFile = new File(filesDir, "todo.txt");
-        try {
-            items = new ArrayList<String>(FileUtils.readLines(todoFile));
-        } catch (IOException e) {
-            items = new ArrayList<String>();
-        }
-    }
-
-    private void writeItems() {
-        File filesDir = getFilesDir();
-        File todoFile = new File(filesDir, "todo.txt");
-        try {
-            FileUtils.writeLines(todoFile, items);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }*/
 }

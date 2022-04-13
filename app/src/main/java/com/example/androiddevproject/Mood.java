@@ -46,7 +46,6 @@ public class Mood extends AppCompatActivity {
         emotionIntensity = findViewById(R.id.seekBarIntensity);
         back = findViewById(R.id.back);
 
-
         initDB();
 
         radGroupEmotion.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -85,6 +84,8 @@ public class Mood extends AppCompatActivity {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                //Useless delete later
                 String temp = "Mood: ";
                 temp += radEmotion.getText().toString() + " \nIntensity: ";
                 temp += emotionIntensity.getProgress();
