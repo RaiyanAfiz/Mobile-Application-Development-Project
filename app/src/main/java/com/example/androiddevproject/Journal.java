@@ -67,6 +67,8 @@ public class Journal extends AppCompatActivity {
 
                     }
                 });
+
+                journalInput.setText("");
             }
         });
 
