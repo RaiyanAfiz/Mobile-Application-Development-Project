@@ -60,9 +60,9 @@ public class Journal extends AppCompatActivity {
                             @Override
                             public void run() {
                                 if (id > 0) {
-                                    Toast.makeText(Journal.this, "Data Insertion success.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Journal.this, "Your journal entry has be added", Toast.LENGTH_SHORT).show();
                                 } else {
-                                    Toast.makeText(Journal.this, "Data Insertion failed.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Journal.this, "Error: Could not add journal entry", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });

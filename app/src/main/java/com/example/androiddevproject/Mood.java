@@ -27,7 +27,7 @@ public class Mood extends AppCompatActivity {
     RadioButton radEmotion;
     RadioGroup radGroupEmotion;
     Button btnSubmit, back;
-    TextView lbl, lblIntensity;
+    TextView lblIntensity;
     SeekBar emotionIntensity;
 
     private MyDB database;
@@ -41,7 +41,6 @@ public class Mood extends AppCompatActivity {
 
         radGroupEmotion = findViewById(R.id.radGroupEmotions);
         btnSubmit = findViewById(R.id.btnSubmit);
-        lbl = findViewById(R.id.lblShow);
         lblIntensity = findViewById(R.id.lblShowIntensity);
         emotionIntensity = findViewById(R.id.seekBarIntensity);
         back = findViewById(R.id.back);
@@ -84,13 +83,6 @@ public class Mood extends AppCompatActivity {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                //Useless delete later
-                String temp = "Mood: ";
-                temp += radEmotion.getText().toString() + " \nIntensity: ";
-                temp += emotionIntensity.getProgress();
-                lbl.setText(temp);
-
                 String myMood = radEmotion.getText().toString();
                 int myIntensity = emotionIntensity.getProgress();
 
@@ -106,9 +98,9 @@ public class Mood extends AppCompatActivity {
                             @Override
                             public void run() {
                                 if (id > 0) {
-                                    Toast.makeText(Mood.this, "Data Insertion success.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Mood.this, "Your mood has been added", Toast.LENGTH_SHORT).show();
                                 } else {
-                                    Toast.makeText(Mood.this, "Data Insertion failed.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Mood.this, "Error: Could not add mood", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
